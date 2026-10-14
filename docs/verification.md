@@ -14,7 +14,9 @@ Fresh release verification run: 2026-10-14.
 - [x] Fixture capture, report, and check — passed; check emitted only the stateful database warning.
 - [x] Secret-value scan: no secret values in `examples`, `README.md`, `src`, or `docs`.
 - [x] Package SHA-256: `1ed1e13e18b1a16aab902f16626c6988ea5efb352eb0fffb270ef52711cc505d`.
-- [ ] Remote CI and release — pending public push.
+- [x] Remote CI: https://github.com/juwonllee2024-dotcom/restorecontract/actions/runs/38490366907 — Node 18/20/22 matrix passed.
+- [x] Public release: https://github.com/juwonllee2024-dotcom/restorecontract/releases/tag/v0.1.0.
+- [x] Release asset digest: GitHub reports `sha256:1ed1e13e18b1a16aab902f16626c6988ea5efb352eb0fffb270ef52711cc505d`.
 
 ## Real input to result
 
