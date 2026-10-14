@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "generatedBy": "restorecontract",
+  "composeVersion": "3.9",
+  "services": [
+    {
+      "name": "db",
+      "image": "postgres:16",
+      "dependsOn": [],
+      "envKeys": [
+        "POSTGRES_PASSWORD"
+      ],
+      "ports": [],
+      "mounts": [
+        {
+          "type": "named",
+          "source": "database",
+          "target": "/var/lib/postgresql/data",
+          "readOnly": false
+        }
+      ],
+      "restart": null
+    },
+    {
+      "name": "web",
+      "image": "ghcr.io/example/web:1.2.3",
+      "dependsOn": [
+        "db"
+      ],
+      "envKeys": [
+        "APP_SECRET",
+        "TZ"
+      ],
+      "ports": [
+        "8080:8080"
+      ],
+      "mounts": [
+        {
+          "type": "bind",
+          "source": "./data",
+          "target": "/var/lib/web",
+          "readOnly": true
+        }
+      ],
+      "restart": null
+    }
+  ],
+  "namedVolumes": [
+    "database"
+  ],
+  "networks": [],
+  "warnings": [
+    "db looks stateful: use a logical dump or database-aware snapshot before copying raw data."
+  ]
+}

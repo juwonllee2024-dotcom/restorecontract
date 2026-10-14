@@ -1,0 +1,20 @@
+{
+  "version": "3.9",
+  "services": {
+    "db": {
+      "image": "postgres:16",
+      "environment": ["POSTGRES_PASSWORD"],
+      "volumes": ["database:/var/lib/postgresql/data"]
+    },
+    "web": {
+      "image": "ghcr.io/example/web:1.2.3",
+      "depends_on": ["db"],
+      "environment": ["APP_SECRET", "TZ=UTC"],
+      "ports": ["8080:8080"],
+      "volumes": ["./data:/var/lib/web:ro"]
+    }
+  },
+  "volumes": {
+    "database": {}
+  }
+}
